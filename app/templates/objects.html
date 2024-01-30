@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %} {% endblock title %}
+
+{% block content %}
+    <section class="container py-6">
+        <div class="breadcrumb" aria-label="breadcrumbs">
+            <ul>
+                <li><a href="/" class="title">{% trans 'Home' %}</a></li>
+                <li class="is-active title"><a href="#" aria-current="page">{% trans 'Objects' %}</a></li>
+            </ul>
+        </div>
+        <div class="columns is-3 is-multiline">
+            {% for object in objects %}
+                <div class="column is-3">
+                    <a href="http://localhost:8000/media/{{ object.image }}" target="_blank">
+                        <img src="http://localhost:8000/media/{{ object.image }}"
+                             alt="{{ project.name }}">
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock content %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block content %}
+    <!-- content start -->
+    <section class="container py-6">
+        <div class="breadcrumb" aria-label="breadcrumbs">
+            <ul>
+                <li><a href="/">Home</a></li>
+                <li class="is-active"><a href="#" aria-current="page">{{ project.name }}</a></li>
+            </ul>
+        </div>
+        <div class="columns">
+            <div class="column is-6">
+                <figure class="image">
+                    <a href="http://localhost:8000/media/{{ project.image }}" target="_blank">
+                        <img src="http://localhost:8000/media/{{ project.image }}" alt="">
+                    </a>
+                </figure>
+            </div>
+            <div class="column is-6">
+                <h1 class="title">{{ project.name }}</h1>
+                <p class="content">{{ project.description }}</p>
+            </div>
+        </div>
+    </section>
+    <!-- content end -->
+{% endblock content %}
+

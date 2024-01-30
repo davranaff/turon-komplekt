@@ -1,0 +1,94 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-22 01:12+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+msgid "Home"
+msgstr "Home"
+
+msgid "Catalog"
+msgstr "Catalog"
+
+msgid "About"
+msgstr "About"
+
+msgid "English"
+msgstr "English"
+
+msgid "Russia"
+msgstr "Russia"
+
+msgid "Uzbek"
+msgstr "Uzbek"
+
+msgid "Links"
+msgstr "Links"
+
+msgid "Text"
+msgstr "Your text... (300 symbols)"
+
+msgid "Languages"
+msgstr "Languages"
+
+msgid "Production"
+msgstr "Production"
+
+msgid "Contacts"
+msgstr "Contacts"
+
+msgid "Feedback"
+msgstr "Feedback"
+
+msgid "Send"
+msgstr "Send"
+
+msgid "Reset"
+msgstr "Reset"
+
+msgid "More"
+msgstr "More"
+
+msgid "Objects"
+msgstr "Objects"
+
+msgid "Certificates"
+msgstr "Certificates"
+
+msgid "Statistics"
+msgstr "Statistics"
+
+msgid "Trust"
+msgstr "They trust us"
+
+msgid "Branches"
+msgstr "Branches"
+
+msgid "Name"
+msgstr "Name"
+
+msgid "City"
+msgstr "City"
+
+msgid "Phone"
+msgstr "Phone"
+
+msgid "Address"
+msgstr "Address"
+
+msgid "Email"
+msgstr "Email"
+

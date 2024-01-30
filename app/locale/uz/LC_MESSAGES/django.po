@@ -1,0 +1,94 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-01-22 01:12+0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+msgid "Home"
+msgstr "Bosh sahifa"
+
+msgid "Catalog"
+msgstr "Katalog"
+
+msgid "About"
+msgstr "Biz haqimizda"
+
+msgid "English"
+msgstr "Inglizcha"
+
+msgid "Russia"
+msgstr "Ruscha"
+
+msgid "Uzbek"
+msgstr "O'zbekcha"
+
+msgid "Links"
+msgstr "Havolalar"
+
+msgid "Text"
+msgstr "Matn... (300 harf)"
+
+msgid "Languages"
+msgstr "Tillar"
+
+msgid "Production"
+msgstr "Mahsulotlar"
+
+msgid "Contacts"
+msgstr "Kontaktlar"
+
+msgid "Feedback"
+msgstr "Qayta aloqa"
+
+msgid "Send"
+msgstr "Jo'natish"
+
+msgid "Reset"
+msgstr "Tozalash"
+
+msgid "More"
+msgstr "Batafsil"
+
+msgid "Objects"
+msgstr "Obyektlar"
+
+msgid "Certificates"
+msgstr "Sertifikatlar"
+
+msgid "Statistics"
+msgstr "Statistikalar"
+
+msgid "Trust"
+msgstr "Bizga ishonishadi"
+
+msgid "Branches"
+msgstr "Filiallar"
+
+msgid "Name"
+msgstr "Ism"
+
+msgid "City"
+msgstr "Shahar"
+
+msgid "Phone"
+msgstr "Telefon raqam"
+
+msgid "Address"
+msgstr "Manzil"
+
+msgid "Email"
+msgstr "Elektron pochta"
+

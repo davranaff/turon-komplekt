@@ -1,0 +1,157 @@
+body {
+    background: rgba(195, 246, 225, 0.1);
+}
+
+
+.bg-grey {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.footer {
+    margin-top: 50px;
+}
+
+.logo {
+    width: 60px;
+    max-height: 60px !important;
+}
+
+.splide__pagination__page {
+    background: black;
+}
+
+.splide__pagination__page.is-active {
+    background: #0e80e6;
+}
+
+.image img {
+    width: 100%;
+}
+
+.banner {
+    position: relative;
+    width: auto;
+    height: auto;
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgba(0, 0, 0, 0.5);
+    background-blend-mode: multiply;
+    z-index: 0;
+}
+
+.blend {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.banner video {
+}
+
+.banner-inner {
+    position: absolute;
+    width: auto;
+    height: auto;
+    text-align: center;
+    z-index: 2;
+    color: white;
+}
+
+.footer {
+    background-color: rgba(62, 142, 208, 0.1);
+}
+
+.footer iframe {
+    width: 100% !important;
+    height: 400px !important;
+}
+
+#production img, #objects img {
+    object-fit: cover;
+    object-position: 0 0;
+    width: 100%;
+    transition: .1s;
+}
+
+#production img:hover, #objects img:hover {
+    scale: 110%;
+
+}
+
+#production .column, #objects .column {
+    border: 1px dotted #0e80e6;
+    overflow: hidden;
+}
+
+.splide__slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.splide__slide {
+    border: 1px solid black;
+}
+
+#filiales figure {
+    width: 100% !important;
+    height: 200px !important;
+}
+
+.card-image iframe {
+    width: 100%;
+}
+
+
+@media screen and (max-width: 768px) {
+    .container {
+        margin: 40px 100px !important;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .title {
+        margin: 10px 0 !important;
+        font-size: 25px !important;
+    }
+
+    .button {
+        font-size: 13px !important;
+        padding: 3px 10px !important;
+    }
+
+    .container {
+        margin: 20px !important;
+    }
+
+    .navbar-end {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .footer iframe {
+        width: 100%;
+    }
+
+    .card-image iframe {
+        width: 100%;
+    }
+
+    .title {
+        font-size: 18px !important;
+    }
+
+    .subtitle {
+        font-size: 14px !important;
+        margin: 0 !important;
+    }
+
+    .splide__slide {
+        height: 150px;
+    }
+}

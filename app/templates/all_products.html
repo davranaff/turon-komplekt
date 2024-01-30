@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %} {% endblock title %}
+
+{% block content %}
+    <section class="container py-6">
+        <div class="breadcrumb" aria-label="breadcrumbs">
+            <ul>
+                <li><a href="/" class="title">{% trans 'Home' %}</a></li>
+                <li class="is-active title"><a href="#" aria-current="page">{% trans 'Production' %}</a></li>
+            </ul>
+        </div>
+        <div class="columns is-3 is-multiline">
+            {% for project in projects %}
+                <div class="column is-3">
+                    <a href="{% url 'detail' project.slug %}">
+                        <p class="subtitle">{{ project.name }}</p>
+                        <img src="http://localhost:8000/media/{{ project.image }}"
+                             alt="{{ project.name }}">
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock content %}

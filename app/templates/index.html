@@ -1,0 +1,461 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}Turon Komplekt{% endblock title %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static '' %}">
+{% endblock links %}
+
+{% block content %}
+    <!-- modal -->
+    <div class="modal" id="modal-js-example">
+        <div class="modal-background"></div>
+        <div class="modal-card">
+            <header class="modal-card-head">
+                <p class="modal-card-title">{% trans 'Feedback' %}</p>
+                <button class="delete" aria-label="close"></button>
+            </header>
+            <section class="modal-card-body">
+                <form method="POST" action="{% url 'feedback' %}" class="form-group">
+                    {% csrf_token %}
+                    <label for="input-name">
+                        <input id="input-name" type="text" name="name" required minlength="3" class="input my-2" placeholder="{% trans 'Name' %}">
+                    </label>
+                    <label for="input-phone">
+                        <input id="input-phone" type="text" name="phone" required maxlength="13" class="input my-2" placeholder="{% trans 'Phone' %}">
+                    </label>
+                    <label for="input-description">
+                        <textarea
+                                name="text"
+                                id="input-description"
+                                maxlength="300"
+                                class="textarea my-2"
+                                placeholder="{% trans 'Text' %}"></textarea>
+                    </label>
+                    <button type="submit" class="button is-info">{% trans 'Send' %}</button>
+                    <button type="reset" class="button is-danger">{% trans 'Reset' %}</button>
+                </form>
+            </section>
+        </div>
+    </div>
+    <!-- end modal -->
+
+    <!-- navbar -->
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="/">
+                <img class="logo" src="{% static 'images/logo.png' %}" alt="logo"/>
+            </a>
+
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+               data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                        {% trans 'Links' %}
+                    </a>
+
+                    <div class="navbar-dropdown">
+                        <a href="#about" class="navbar-item">
+                            {% trans 'About' %}
+                        </a>
+
+                        <a class="navbar-item" href="#objects">
+                            {% trans 'Objects' %}
+                        </a>
+
+                        <a class="navbar-item" href="#certificates">
+                            {% trans 'Certificates' %}
+                        </a>
+
+                        <a class="navbar-item" href="#colleagues">
+                            {% trans 'Trust' %}
+                        </a>
+                        <a class="navbar-item" href="#filiales">
+                            {% trans 'Branches' %}
+                        </a>
+                    </div>
+                </div>
+
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link">
+                        {% trans 'Languages' %}
+                    </a>
+
+                    <div class="navbar-dropdown">
+                        <a href="/en/" class="navbar-item">
+                            {% trans 'English' %}
+                        </a>
+
+                        <a class="navbar-item" href="/ru/">
+                            {% trans 'Russia' %}
+                        </a>
+
+                        <a class="navbar-item" href="/uz/">
+                            {% trans 'Uzbek' %}
+                        </a>
+                    </div>
+                </div>
+
+                <a href="#production" class="navbar-item">
+                    {% trans 'Production' %}
+                </a>
+
+                <a class="navbar-item" href="#contacts">
+                    {% trans 'Contacts' %}
+                </a>
+            </div>
+
+            <div class="navbar-end">
+                <a href="{{ info.telegram }}" class="navbar-item">
+                    <img src="{% static 'icons/telegram.png' %}" alt="">
+                </a>
+
+                <a href="{{ info.instagram }}" class="navbar-item">
+                    <img src="{% static 'icons/instagram.png' %}" alt="">
+                </a>
+
+                <a href="{{ info.youtube }}" class="navbar-item">
+                    <img src="{% static 'icons/youtube.png' %}" alt="">
+                </a>
+
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <a href="tel:{{ info.phone }}" class="button is-link">
+                            <strong>{{ info.phone }}</strong>
+                        </a>
+                        <a href="http://localhost:8000/media/{{ info.pdf }}" class="button is-link">
+                            {% trans 'Catalog' %}
+                        </a>
+                        <button class="button is-info js-modal-trigger" data-target="modal-js-example">
+                            {% trans 'Feedback' %}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- end navbar -->
+
+    <!-- banner -->
+    <section class="banner">
+        <div class="blend"></div>
+        <video autoplay muted loop style="width: 100%">
+            <source src="{% static 'videos/background.mp4' %}" type="video/mp4"/>
+        </video>
+        <div class="banner-inner">
+            <h1 class="title has-text-white">{{ info.title }}</h1>
+            <h3 class="subtitle has-text-white">{{ info.subtitle }}</h3>
+        </div>
+    </section>
+    <!-- end banner -->
+
+    <!-- about -->
+    <section id="about" class="container py-6">
+        <h1 class="title">{% trans 'About' %}</h1>
+        <p class="content">{{ info.about }}</p>
+    </section>
+    <!-- end about -->
+
+    <!-- productions -->
+    <section id="production" class="container my-6">
+        <h1 class="title">{% trans 'Production'  %} <a href="{% url 'products' %}" class="button is-info">{% trans 'More' %}</a></h1>
+        <div class="columns is-multiline production">
+            {% for project in projects %}
+                <div class="column is-3">
+                    <a href="{% url 'detail' project.slug %}">
+                        <img src="http://localhost:8000/media/{{ project.image }}"
+                             alt="{{ project.name }}">
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+    <!-- end productions -->
+
+    <!-- objects -->
+    <section class="container my-6" id="objects">
+        <h1 class="title">{% trans 'Objects' %} <a href="{% url 'objects' %}" class="button is-info">{% trans 'More' %}</a></h1>
+        <div
+                id="thumbnail-carousel"
+                class="splide"
+                aria-label="The carousel with thumbnails. Selecting a thumbnail will change the Beautiful Gallery carousel."
+        >
+            <div class="splide__track">
+
+                <ul class="splide__list">
+                    {% for object in objects %}
+                        <li class="splide__slide">
+                            <a href="http://localhost:8000/media/{{ object.image }}" target="_blank">
+                                <img src="http://localhost:8000/media/{{ object.image }}"
+                                 alt="{{ object.name }}"/>
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- end objects -->
+
+    <!-- certificates -->
+    <section id="certificates" class="container my-6">
+        <h1 class="title">{% trans 'Certificates' %}</h1>
+        <div id="image-carousel-certificates" class="splide" aria-label="Beautiful Images">
+            <div class="splide__track">
+                <ul class="splide__list">
+                    {% for certificate in certifications %}
+                        <li class="splide__slide">
+                            <a href="http://localhost:8000/media/{{ certificate.image }}" target="_blank">
+                                <img src="http://localhost:8000/media/{{ certificate.image }}" alt="{{ certificate.name }}">
+                            </a>
+                        </li>
+                    {% endfor %}
+
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- end certificates -->
+
+    <!-- statistics -->
+    <section id="statistics" class="container">
+        <h1 class="title">{% trans 'Statistics' %}</h1>
+
+    </section>
+    <!-- end statistics -->
+
+    <!-- colleagues -->
+    <section class="container my-6" id="colleagues">
+        <h1 class="title">{% trans 'Trust' %}</h1>
+        <div id="image-carousel-colleagues" class="splide" aria-label="Beautiful Images">
+            <div class="splide__track">
+                <ul class="splide__list">
+                    {% for trust in trusts %}
+                        <li class="splide__slide card">
+                            <a href="http://localhost:8000/media/{{ trust.img }}" target="_blank">
+                                <img src="http://localhost:8000/media/{{ trust.img }}" alt="{{ trust.name }}">
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- end colleagues -->
+
+    <!-- filiales -->
+    <section id="filiales" class="container">
+        <h1 class="title">{% trans 'Branches' %}</h1>
+        <div class="columns is-multiline is-justify-content-space-evenly">
+            {% for branch in branches %}
+                <div class="card column is-5">
+                    <div class="card-image">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d9494.043612868729!2d{{ branch.lng }}!3d{{ branch.lat }}!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sru!2s!4v1706166420720!5m2!1sru!2s"
+                                style="border:0;" allowfullscreen="" loading="lazy"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                    <div class="card-content">
+                        <div class="media">
+                            <div class="media-content">
+                                <p class="title is-4">{{ branch.name }}</p>
+                                <span class="subtitle is-6">{% trans 'City' %}: {{ branch.city }} | </span>
+                                <span class="subtitle is-6">{% trans 'Phone' %}: {{ branch.phone }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+    </section>
+    <!-- end filiales -->
+
+    <!-- footer -->
+    <footer id="contacts" class="footer">
+        {#    {% static 'images/logo.png' %}#}
+        <div class="columns is-justify-content-space-between">
+            <div class="column is-5">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d553.9943283625153!2d64.42587648839744!3d39.80379875775173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f5009c196ad82b5%3A0x204805df9b57b0a7!2sOOO%20%22Turon%20Komplekt%22!5e0!3m2!1sru!2s!4v1705946869565!5m2!1sru!2s"
+                        style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="column is-3">
+                <p class="subtitle">
+                    {% trans 'Links' %}
+                </p>
+
+                <a href="#about" class="navbar-item">
+                    {% trans 'About' %}
+                </a>
+
+                <a href="#production" class="navbar-item">
+                    {% trans 'Production' %}
+                </a>
+
+                <a class="navbar-item" href="#objects">
+                    {% trans 'Objects' %}
+                </a>
+
+                <a class="navbar-item" href="#certificates">
+                    {% trans 'Certificates' %}
+                </a>
+
+                <a class="navbar-item" href="#colleagues">
+                    {% trans 'Trust' %}
+                </a>
+
+                <a class="navbar-item" href="#filiales">
+                    {% trans 'Branches' %}
+                </a>
+
+                <a class="navbar-item" href="#contacts">
+                    {% trans 'Contacts' %}
+                </a>
+            </div>
+            <div class="column is-3">
+                <p class="subtitle">
+                    {% trans 'Address' %}: {{ info.address }}
+                </p>
+
+                <p class="subtitle">
+                    {% trans 'Email' %}: {{ info.email }}
+                </p>
+
+                <p class="subtitle">
+                    {% trans 'Phone' %}: {{ info.phone }}
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- end footer -->
+{% endblock content %}
+
+{% block script %}
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function () {
+            new Splide('#image-carousel-colleagues', {
+                perPage: 4,
+                loop: true,
+                autoplay: true,
+                gap: 20,
+                breakpoints: {
+                    640: {
+                        perPage: 1,
+                    },
+                },
+            }).mount();
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            new Splide('#image-carousel-certificates', {
+                perPage: 4,
+                autoplay: true,
+                loop: true,
+                gap: 20,
+                breakpoints: {
+                    768: {
+                        perPage: 2,
+                    },
+                    425: {
+                        perPage: 1,
+                    }
+                },
+            }).mount();
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            new Splide('#thumbnail-carousel', {
+                fixedWidth: 250,
+                fixedHeight: 250,
+                gap: 20,
+                rewind: true,
+                pagination: true,
+                breakpoints: {
+                    768: {
+                        perPage: 2,
+                    },
+                    425: {
+                        perPage: 1,
+                    }
+                },
+            }).mount();
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // Get all "navbar-burger" elements
+            const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+
+            // Add a click event on each of them
+            $navbarBurgers.forEach(el => {
+                el.addEventListener('click', () => {
+
+                    // Get the target from the "data-target" attribute
+                    const target = el.dataset.target;
+                    const $target = document.getElementById(target);
+
+                    // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                    el.classList.toggle('is-active');
+                    $target.classList.toggle('is-active');
+
+                });
+            });
+
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            // Functions to open and close a modal
+            function openModal($el) {
+                $el.classList.add('is-active');
+            }
+
+            function closeModal($el) {
+                $el.classList.remove('is-active');
+            }
+
+            function closeAllModals() {
+                (document.querySelectorAll('.modal') || []).forEach(($modal) => {
+                    closeModal($modal);
+                });
+            }
+
+            // Add a click event on buttons to open a specific modal
+            (document.querySelectorAll('.js-modal-trigger') || []).forEach(($trigger) => {
+                const modal = $trigger.dataset.target;
+                const $target = document.getElementById(modal);
+
+                $trigger.addEventListener('click', () => {
+                    openModal($target);
+                });
+            });
+
+            // Add a click event on various child elements to close the parent modal
+            (document.querySelectorAll('.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button') || []).forEach(($close) => {
+                const $target = $close.closest('.modal');
+
+                $close.addEventListener('click', () => {
+                    closeModal($target);
+                });
+            });
+
+            // Add a keyboard event to close all modals
+            document.addEventListener('keydown', (event) => {
+                if (e.key === "Escape") {
+                    closeAllModals();
+                }
+            });
+        });
+    </script>
+{% endblock script %}
